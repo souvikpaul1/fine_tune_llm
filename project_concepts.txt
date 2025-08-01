@@ -1,0 +1,102 @@
+1. Tools and package:
+
+- Google Colab
+- Hugging Face
+- Torch
+- Weights and Bias
+- Unsloth
+
+
+2. Smaller (fine tuned) model outperform large base models
+
+3. Unsloth
+The Unsloth package is a Python framework designed for fast fine-tuning and efficient inference of large language models (LLMs), especially optimized for models like Llama-based architectures. It enables loading pre-trained LLMs in low-bit precision modes (such as 4-bit) to save GPU memory and accelerate training and inference processes.
+
+
+4. 
+model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
+model, tokenizer = FastLanguageModel.from_pretrained(
+    model_name=model_name,
+    max_seq_length=2048,
+    dtype=None, --> model checks in runtime the format
+    load_in_4bit=True,
+    token=hf_token
+)
+
+5. Create a system Prompt template
+
+6. For inference after loading model we need 4 things:
+
+a. Questions(Input)
+b. Tokenize the input
+c. Generate a response
+d. Decode the response tokens back to text
+
+
+7. Fine tuning LLM:
+	-Load the dataset on which we want to do fine tuning.
+	- We need to prepare the dataset as per the model input
+
+
+8. Create a system Prompt template for finetuning
+
+9. Setup LORA finetuning to the model add adapters.
+
+10. create SFTTrainer() 
+11. Setup Weights and Bias
+
+12.Start the fine-tuning process
+trainer_stats = trainer.train()
+Training loss should go down.
+
+13.Testing after fine-tuning (model_lora)
+
+
+------------------------------------------------
+how to compare the results of the output before fine tuning and after fine tuning:
+
+1. Use the Same Test Inputs (Baseline Questions)
+
+2. Create a Comparison Table on same questions
+
+3. Evaluate Outputs methods:
+	-	Human Evaluation
+	-	Scoring Rubrics
+	-	Automated Metrics
+			-If you have gold-standard answers, you might use BLEU, ROUGE, or other textual similarity metrics—though these are less meaningful for open-ended medical questions.
+	- 	Document the Improvement
+
+4. Thats all
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
