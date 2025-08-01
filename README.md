@@ -184,20 +184,3 @@ outputs = model_lora.generate(...)
 response = tokenizer.batch_decode(outputs)
 print(response[0].split("### Answer:")[1])
 ```
-
-## Interview Discussion Points
-
-- **Prompt engineering**: Explain how careful construction guides the model toward step-by-step clinical reasoning.
-- **LoRA fine-tuning**: Describe why LoRA is used — to efficiently update only a subset of parameters, saving compute/memory.
-- **Data selection**: The use of chain-of-thought medical CoT datasets ensures the bot learns to reason, not just answer.
-- **Inference and evaluation**: How you evaluate effectiveness before and after fine-tuning.
-- **Experiment tracking**: Emphasize the importance of wandb for reproducibility and tracking training metrics.
-
-## References
-
-- DeepSeek-R1 official HF repo
-- FreedomIntelligence/medical-o1-reasoning-SFT dataset
-- Unsloth documentation
-
-**Pro Tip for Interviews:**  
-Focus not just on code, but on *why* each step is needed (prompt design, data, LoRA), and what value it adds for the end-user—especially in medical safety and model transparency.
